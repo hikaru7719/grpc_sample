@@ -116,27 +116,199 @@ func (m *Feature) GetLocation() *Point {
 	return nil
 }
 
+type Rectangle struct {
+	Lo                   *Point   `protobuf:"bytes,1,opt,name=lo,proto3" json:"lo,omitempty"`
+	Hi                   *Point   `protobuf:"bytes,2,opt,name=hi,proto3" json:"hi,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Rectangle) Reset()         { *m = Rectangle{} }
+func (m *Rectangle) String() string { return proto.CompactTextString(m) }
+func (*Rectangle) ProtoMessage()    {}
+func (*Rectangle) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b7d679f20da65b7b, []int{2}
+}
+
+func (m *Rectangle) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Rectangle.Unmarshal(m, b)
+}
+func (m *Rectangle) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Rectangle.Marshal(b, m, deterministic)
+}
+func (m *Rectangle) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Rectangle.Merge(m, src)
+}
+func (m *Rectangle) XXX_Size() int {
+	return xxx_messageInfo_Rectangle.Size(m)
+}
+func (m *Rectangle) XXX_DiscardUnknown() {
+	xxx_messageInfo_Rectangle.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Rectangle proto.InternalMessageInfo
+
+func (m *Rectangle) GetLo() *Point {
+	if m != nil {
+		return m.Lo
+	}
+	return nil
+}
+
+func (m *Rectangle) GetHi() *Point {
+	if m != nil {
+		return m.Hi
+	}
+	return nil
+}
+
+type RouteNote struct {
+	Location             *Point   `protobuf:"bytes,1,opt,name=location,proto3" json:"location,omitempty"`
+	Message              string   `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RouteNote) Reset()         { *m = RouteNote{} }
+func (m *RouteNote) String() string { return proto.CompactTextString(m) }
+func (*RouteNote) ProtoMessage()    {}
+func (*RouteNote) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b7d679f20da65b7b, []int{3}
+}
+
+func (m *RouteNote) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RouteNote.Unmarshal(m, b)
+}
+func (m *RouteNote) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RouteNote.Marshal(b, m, deterministic)
+}
+func (m *RouteNote) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RouteNote.Merge(m, src)
+}
+func (m *RouteNote) XXX_Size() int {
+	return xxx_messageInfo_RouteNote.Size(m)
+}
+func (m *RouteNote) XXX_DiscardUnknown() {
+	xxx_messageInfo_RouteNote.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RouteNote proto.InternalMessageInfo
+
+func (m *RouteNote) GetLocation() *Point {
+	if m != nil {
+		return m.Location
+	}
+	return nil
+}
+
+func (m *RouteNote) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type RouteSummary struct {
+	PointCount           int32    `protobuf:"varint,1,opt,name=point_count,json=pointCount,proto3" json:"point_count,omitempty"`
+	FeatureCount         int32    `protobuf:"varint,2,opt,name=feature_count,json=featureCount,proto3" json:"feature_count,omitempty"`
+	Distance             int32    `protobuf:"varint,3,opt,name=distance,proto3" json:"distance,omitempty"`
+	ElapsedTime          int32    `protobuf:"varint,4,opt,name=elapsed_time,json=elapsedTime,proto3" json:"elapsed_time,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RouteSummary) Reset()         { *m = RouteSummary{} }
+func (m *RouteSummary) String() string { return proto.CompactTextString(m) }
+func (*RouteSummary) ProtoMessage()    {}
+func (*RouteSummary) Descriptor() ([]byte, []int) {
+	return fileDescriptor_b7d679f20da65b7b, []int{4}
+}
+
+func (m *RouteSummary) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RouteSummary.Unmarshal(m, b)
+}
+func (m *RouteSummary) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RouteSummary.Marshal(b, m, deterministic)
+}
+func (m *RouteSummary) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RouteSummary.Merge(m, src)
+}
+func (m *RouteSummary) XXX_Size() int {
+	return xxx_messageInfo_RouteSummary.Size(m)
+}
+func (m *RouteSummary) XXX_DiscardUnknown() {
+	xxx_messageInfo_RouteSummary.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RouteSummary proto.InternalMessageInfo
+
+func (m *RouteSummary) GetPointCount() int32 {
+	if m != nil {
+		return m.PointCount
+	}
+	return 0
+}
+
+func (m *RouteSummary) GetFeatureCount() int32 {
+	if m != nil {
+		return m.FeatureCount
+	}
+	return 0
+}
+
+func (m *RouteSummary) GetDistance() int32 {
+	if m != nil {
+		return m.Distance
+	}
+	return 0
+}
+
+func (m *RouteSummary) GetElapsedTime() int32 {
+	if m != nil {
+		return m.ElapsedTime
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*Point)(nil), "routeguide.Point")
 	proto.RegisterType((*Feature)(nil), "routeguide.Feature")
+	proto.RegisterType((*Rectangle)(nil), "routeguide.Rectangle")
+	proto.RegisterType((*RouteNote)(nil), "routeguide.RouteNote")
+	proto.RegisterType((*RouteSummary)(nil), "routeguide.RouteSummary")
 }
 
 func init() { proto.RegisterFile("route_guide.proto", fileDescriptor_b7d679f20da65b7b) }
 
 var fileDescriptor_b7d679f20da65b7b = []byte{
-	// 178 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2c, 0xca, 0x2f, 0x2d,
-	0x49, 0x8d, 0x4f, 0x2f, 0xcd, 0x4c, 0x49, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x02,
-	0x0b, 0x81, 0x45, 0x94, 0x1c, 0xb9, 0x58, 0x03, 0xf2, 0x33, 0xf3, 0x4a, 0x84, 0xa4, 0xb8, 0x38,
-	0x72, 0x12, 0x4b, 0x32, 0x4b, 0x4a, 0x53, 0x52, 0x25, 0x18, 0x15, 0x18, 0x35, 0x58, 0x83, 0xe0,
-	0x7c, 0x21, 0x19, 0x2e, 0xce, 0x9c, 0xfc, 0xbc, 0x74, 0x88, 0x24, 0x13, 0x58, 0x12, 0x21, 0xa0,
-	0xe4, 0xc3, 0xc5, 0xee, 0x96, 0x9a, 0x58, 0x52, 0x5a, 0x94, 0x2a, 0x24, 0xc4, 0xc5, 0x92, 0x97,
-	0x98, 0x0b, 0x31, 0x80, 0x33, 0x08, 0xcc, 0x16, 0xd2, 0xe5, 0xe2, 0xc8, 0xc9, 0x4f, 0x4e, 0x2c,
-	0xc9, 0xcc, 0xcf, 0x03, 0xeb, 0xe5, 0x36, 0x12, 0xd4, 0x43, 0x38, 0x40, 0x0f, 0x6c, 0x7b, 0x10,
-	0x5c, 0x89, 0x91, 0x0b, 0x17, 0x57, 0x10, 0x48, 0xd6, 0x1d, 0x24, 0x2b, 0x64, 0xc6, 0xc5, 0xe5,
-	0x9e, 0x5a, 0x02, 0x33, 0x1e, 0x53, 0xa3, 0x94, 0x30, 0xb2, 0x10, 0x54, 0x9d, 0x12, 0x43, 0x12,
-	0x1b, 0xd8, 0xa7, 0xc6, 0x80, 0x00, 0x00, 0x00, 0xff, 0xff, 0x0a, 0x19, 0xbd, 0xa9, 0xfe, 0x00,
-	0x00, 0x00,
+	// 378 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x92, 0xcd, 0x4e, 0xab, 0x40,
+	0x14, 0xc7, 0x0b, 0xb7, 0xbd, 0x2d, 0x07, 0xee, 0xa2, 0xe7, 0xc6, 0x84, 0x10, 0x13, 0x2d, 0x6e,
+	0xba, 0xb1, 0x69, 0x6a, 0xe2, 0xb2, 0xc6, 0x34, 0xb1, 0x9b, 0xc6, 0x28, 0x76, 0xdf, 0x8c, 0x70,
+	0xa4, 0x93, 0x00, 0xd3, 0xc0, 0xb0, 0xf0, 0x01, 0x7c, 0x02, 0x5f, 0xd8, 0x30, 0x03, 0xfd, 0xd0,
+	0x36, 0xee, 0x98, 0xdf, 0xf9, 0xff, 0xcf, 0x27, 0xd0, 0xcf, 0x45, 0x29, 0x69, 0x15, 0x97, 0x3c,
+	0xa2, 0xd1, 0x26, 0x17, 0x52, 0x20, 0x28, 0xa4, 0x88, 0x7f, 0x0f, 0x9d, 0x27, 0xc1, 0x33, 0x89,
+	0x1e, 0xf4, 0x12, 0x26, 0xb9, 0x2c, 0x23, 0x72, 0x8d, 0x4b, 0x63, 0xd8, 0x09, 0xb6, 0x6f, 0x3c,
+	0x07, 0x2b, 0x11, 0x59, 0xac, 0x83, 0xa6, 0x0a, 0xee, 0x80, 0xbf, 0x80, 0xee, 0x03, 0x31, 0x59,
+	0xe6, 0x84, 0x08, 0xed, 0x8c, 0xa5, 0x3a, 0x81, 0x15, 0xa8, 0x6f, 0xbc, 0x86, 0x5e, 0x22, 0x42,
+	0x26, 0xb9, 0xc8, 0x94, 0xd7, 0x9e, 0xf4, 0x47, 0xbb, 0x06, 0x46, 0xaa, 0x7a, 0xb0, 0x95, 0xf8,
+	0xcf, 0x60, 0x05, 0x14, 0x4a, 0x96, 0xc5, 0x09, 0xe1, 0x00, 0xcc, 0x44, 0xa8, 0x6c, 0x47, 0x5d,
+	0x66, 0x22, 0x2a, 0xc9, 0x9a, 0x9f, 0x4e, 0x6c, 0xae, 0xb9, 0xbf, 0x04, 0x2b, 0xa8, 0xf8, 0xa3,
+	0x90, 0x87, 0xed, 0x18, 0xbf, 0xb6, 0x83, 0x2e, 0x74, 0x53, 0x2a, 0x0a, 0x16, 0xeb, 0xc1, 0xad,
+	0xa0, 0x79, 0xfa, 0x9f, 0x06, 0x38, 0x2a, 0xed, 0x4b, 0x99, 0xa6, 0x2c, 0x7f, 0xc7, 0x0b, 0xb0,
+	0x37, 0x95, 0x7b, 0x15, 0x8a, 0x32, 0x93, 0xf5, 0x12, 0x41, 0xa1, 0x59, 0x45, 0xf0, 0x0a, 0xfe,
+	0xbd, 0xe9, 0x45, 0xd5, 0x12, 0xbd, 0x4a, 0xa7, 0x86, 0x5a, 0xe4, 0x41, 0x2f, 0xe2, 0x85, 0x64,
+	0x59, 0x48, 0xee, 0x1f, 0x7d, 0x87, 0xe6, 0x8d, 0x03, 0x70, 0x28, 0x61, 0x9b, 0x82, 0xa2, 0x95,
+	0xe4, 0x29, 0xb9, 0x6d, 0x15, 0xb7, 0x6b, 0xb6, 0xe4, 0x29, 0x4d, 0x3e, 0x4c, 0x00, 0xd5, 0xd5,
+	0xbc, 0x1a, 0x07, 0x6f, 0x01, 0xe6, 0x24, 0x9b, 0xf3, 0xfc, 0x9c, 0xd4, 0xfb, 0xbf, 0x8f, 0x6a,
+	0x9d, 0xdf, 0xc2, 0x29, 0x38, 0x0b, 0x5e, 0x34, 0xc6, 0x02, 0xcf, 0xf6, 0x65, 0xdb, 0xfb, 0x9c,
+	0x70, 0x8f, 0x0d, 0x9c, 0x82, 0x1d, 0x50, 0x28, 0xf2, 0x48, 0xf5, 0x72, 0xac, 0xb0, 0x7b, 0x90,
+	0x71, 0x6f, 0x8f, 0x7e, 0x6b, 0x68, 0xe0, 0x5d, 0x7d, 0xb2, 0xd9, 0x9a, 0xc9, 0x6f, 0xc5, 0x9b,
+	0x4b, 0x7a, 0xc7, 0x71, 0x65, 0x1f, 0x1b, 0xaf, 0x7f, 0xd5, 0xaf, 0x7e, 0xf3, 0x15, 0x00, 0x00,
+	0xff, 0xff, 0xab, 0x4b, 0x08, 0xc3, 0xff, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -152,6 +324,9 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type RouteGuideClient interface {
 	GetFeature(ctx context.Context, in *Point, opts ...grpc.CallOption) (*Feature, error)
+	ListFeatures(ctx context.Context, in *Rectangle, opts ...grpc.CallOption) (RouteGuide_ListFeaturesClient, error)
+	RecordRoute(ctx context.Context, opts ...grpc.CallOption) (RouteGuide_RecordRouteClient, error)
+	RouteChat(ctx context.Context, opts ...grpc.CallOption) (RouteGuide_RouteChatClient, error)
 }
 
 type routeGuideClient struct {
@@ -171,9 +346,109 @@ func (c *routeGuideClient) GetFeature(ctx context.Context, in *Point, opts ...gr
 	return out, nil
 }
 
+func (c *routeGuideClient) ListFeatures(ctx context.Context, in *Rectangle, opts ...grpc.CallOption) (RouteGuide_ListFeaturesClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_RouteGuide_serviceDesc.Streams[0], "/routeguide.RouteGuide/ListFeatures", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &routeGuideListFeaturesClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type RouteGuide_ListFeaturesClient interface {
+	Recv() (*Feature, error)
+	grpc.ClientStream
+}
+
+type routeGuideListFeaturesClient struct {
+	grpc.ClientStream
+}
+
+func (x *routeGuideListFeaturesClient) Recv() (*Feature, error) {
+	m := new(Feature)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *routeGuideClient) RecordRoute(ctx context.Context, opts ...grpc.CallOption) (RouteGuide_RecordRouteClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_RouteGuide_serviceDesc.Streams[1], "/routeguide.RouteGuide/RecordRoute", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &routeGuideRecordRouteClient{stream}
+	return x, nil
+}
+
+type RouteGuide_RecordRouteClient interface {
+	Send(*Point) error
+	CloseAndRecv() (*RouteSummary, error)
+	grpc.ClientStream
+}
+
+type routeGuideRecordRouteClient struct {
+	grpc.ClientStream
+}
+
+func (x *routeGuideRecordRouteClient) Send(m *Point) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *routeGuideRecordRouteClient) CloseAndRecv() (*RouteSummary, error) {
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	m := new(RouteSummary)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *routeGuideClient) RouteChat(ctx context.Context, opts ...grpc.CallOption) (RouteGuide_RouteChatClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_RouteGuide_serviceDesc.Streams[2], "/routeguide.RouteGuide/RouteChat", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &routeGuideRouteChatClient{stream}
+	return x, nil
+}
+
+type RouteGuide_RouteChatClient interface {
+	Send(*RouteNote) error
+	Recv() (*RouteNote, error)
+	grpc.ClientStream
+}
+
+type routeGuideRouteChatClient struct {
+	grpc.ClientStream
+}
+
+func (x *routeGuideRouteChatClient) Send(m *RouteNote) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *routeGuideRouteChatClient) Recv() (*RouteNote, error) {
+	m := new(RouteNote)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // RouteGuideServer is the server API for RouteGuide service.
 type RouteGuideServer interface {
 	GetFeature(context.Context, *Point) (*Feature, error)
+	ListFeatures(*Rectangle, RouteGuide_ListFeaturesServer) error
+	RecordRoute(RouteGuide_RecordRouteServer) error
+	RouteChat(RouteGuide_RouteChatServer) error
 }
 
 func RegisterRouteGuideServer(s *grpc.Server, srv RouteGuideServer) {
@@ -198,6 +473,79 @@ func _RouteGuide_GetFeature_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RouteGuide_ListFeatures_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(Rectangle)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(RouteGuideServer).ListFeatures(m, &routeGuideListFeaturesServer{stream})
+}
+
+type RouteGuide_ListFeaturesServer interface {
+	Send(*Feature) error
+	grpc.ServerStream
+}
+
+type routeGuideListFeaturesServer struct {
+	grpc.ServerStream
+}
+
+func (x *routeGuideListFeaturesServer) Send(m *Feature) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _RouteGuide_RecordRoute_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(RouteGuideServer).RecordRoute(&routeGuideRecordRouteServer{stream})
+}
+
+type RouteGuide_RecordRouteServer interface {
+	SendAndClose(*RouteSummary) error
+	Recv() (*Point, error)
+	grpc.ServerStream
+}
+
+type routeGuideRecordRouteServer struct {
+	grpc.ServerStream
+}
+
+func (x *routeGuideRecordRouteServer) SendAndClose(m *RouteSummary) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *routeGuideRecordRouteServer) Recv() (*Point, error) {
+	m := new(Point)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func _RouteGuide_RouteChat_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(RouteGuideServer).RouteChat(&routeGuideRouteChatServer{stream})
+}
+
+type RouteGuide_RouteChatServer interface {
+	Send(*RouteNote) error
+	Recv() (*RouteNote, error)
+	grpc.ServerStream
+}
+
+type routeGuideRouteChatServer struct {
+	grpc.ServerStream
+}
+
+func (x *routeGuideRouteChatServer) Send(m *RouteNote) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *routeGuideRouteChatServer) Recv() (*RouteNote, error) {
+	m := new(RouteNote)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 var _RouteGuide_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "routeguide.RouteGuide",
 	HandlerType: (*RouteGuideServer)(nil),
@@ -207,6 +555,23 @@ var _RouteGuide_serviceDesc = grpc.ServiceDesc{
 			Handler:    _RouteGuide_GetFeature_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "ListFeatures",
+			Handler:       _RouteGuide_ListFeatures_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "RecordRoute",
+			Handler:       _RouteGuide_RecordRoute_Handler,
+			ClientStreams: true,
+		},
+		{
+			StreamName:    "RouteChat",
+			Handler:       _RouteGuide_RouteChat_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
+		},
+	},
 	Metadata: "route_guide.proto",
 }
